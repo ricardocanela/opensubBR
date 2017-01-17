@@ -1,0 +1,26 @@
+{
+  "name": "react-starter-materialize",
+  "version": "0.0.1",
+  "description": "Simple React starter kit with materialize",
+  "main": "index.js",
+  "repository": "git@github.com:tulioc/react_starter_materialize.git",
+  "scripts": {
+    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "*",
+    "babel-loader": "*",
+    "babel-preset-es2015": "*",
+    "babel-preset-react": "*",
+    "webpack": "*",
+    "webpack-dev-server": "*"
+  },
+  "dependencies": {
+    "babel-preset-stage-1": "*",
+    "react": "^*",
+    "react-dom": "*"
+
+  }
+}
