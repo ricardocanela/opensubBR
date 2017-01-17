@@ -1,9 +1,9 @@
 {
-  "name": "react-starter-materialize",
+  "name": "opensubBR",
   "version": "0.0.1",
-  "description": "Simple React starter kit with materialize",
+  "description": "Web-app built with redux-react using opensubtitles-universal-api and materialize",
   "main": "index.js",
-  "repository": "git@github.com:tulioc/react_starter_materialize.git",
+  "repository": "git@github.com:tulioc/opensubBR.git",
   "scripts": {
     "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js"
   },
@@ -21,6 +21,8 @@
     "babel-preset-stage-1": "*",
     "opensubtitles-universal-api": "^1.1.1",
     "react": "^*",
-    "react-dom": "*"
+    "react-dom": "*",
+    "react-redux": "^*",
+    "redux": "^*"
   }
 }
