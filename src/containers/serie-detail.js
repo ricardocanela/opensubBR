@@ -8,10 +8,32 @@ class SerieDetail extends Component {
     this.props.requestDownload(serie);
   }
 
+  renderResult() {
+    if(!this.props.searchResult) {
+      return <div>Waiting for search...</div>
+    } else {
+    return this.props.searchResult.pb.map( (sub) => {
+        return (
+          <div className="collection-item"
+          key={sub.date}>
+            <li>
+              Nome do arquivo: {sub.subFilename}
+            </li>
+          </div>
+        );
+      });
+    }
+  }
+
+  renderTest() {
+    return <div>Teste</div>;
+  }
+
   render() {
     if(!this.props.serie) {
       return <div> Select a serie to get started!</div>;
     }
+
 
     return (
       <div>
@@ -22,6 +44,7 @@ class SerieDetail extends Component {
         onClick={() => this.onClickDownload(this.props.serie)}>
         Search
         </a>
+        <ul className="collection">{this.renderResult()}</ul>
       </div>
     );
   }
@@ -29,7 +52,8 @@ class SerieDetail extends Component {
 
 function mapStateToProps(state) {
   return {
-    serie: state.activeSerie
+    serie: state.activeSerie,
+    searchResult: state.searchResult
   };
 }
 

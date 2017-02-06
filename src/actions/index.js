@@ -11,10 +11,7 @@ export function selectSerie(serie) {
 
 export function requestDownload(serie) {
   const api = new OpenSubtitles('tuliocoelho');
-  const request = api.search(serie)
-  .then(result => {
-    console.log(result);
-  });
+  const request = api.search(serie);
 
   return {
     type: FETCH_DOWNLOAD,

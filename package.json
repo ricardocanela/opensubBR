@@ -23,6 +23,7 @@
     "react": "^*",
     "react-dom": "*",
     "react-redux": "^*",
-    "redux": "^*"
+    "redux": "^*",
+    "redux-promise": "^0.5.3"
   }
 }
