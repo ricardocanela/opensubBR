@@ -1,23 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { requestDownload } from '../actions/index';
+import { selectSerie } from '../actions/index';
 
 
 class SeriesList extends Component {
 
-  onClickDownload() {
-    this.props.requestDownload(this.props.series[0]);
+  onClickSelect(serie) {
+    this.props.selectSerie(serie);
   }
 
   renderList() {
-    return this.props.series.map((series) => {
+    return this.props.series.map((serie) => {
       return (
-          <li
-            key={series.title}
-            className="collection-item"
-            onClick={this.onClickDownload.bind(this)}>
-            {series.title}
-          </li>
+      <div className="collection-item"
+        key={serie.imdbid}>
+        <li
+          onClick={() => this.onClickSelect(serie)}>
+          {serie.title}
+        </li>
+      </div>
       );
     });
   }
@@ -36,4 +37,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { requestDownload })(SeriesList);
+export default connect(mapStateToProps, { selectSerie })(SeriesList);
