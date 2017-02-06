@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TestContainer from '../containers/test-container';
+import SeriesList from '../containers/series-list';
 import HelloWorld from './helloworld';
 
 
@@ -8,7 +8,7 @@ export default class App extends Component {
     return (
       <div>
         <HelloWorld />
-        <TestContainer />
+        <SeriesList />
       </div>
     );
   }
