@@ -3,15 +3,15 @@ export default function() {
     {
       title: 'Lost - 2004(ABC)',
       imdbid: 'tt0411008',
-      season: 1,
-      episode: 1
+      season: null,
+      episode: null
 
     },
     {
       title: 'Game Of Thrones',
       imdbid: 'tt0944947',
-      season: 1,
-      episode: 1
+      season: null,
+      episode: null
 
     }
   ]

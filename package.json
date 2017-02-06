@@ -24,6 +24,7 @@
     "react-dom": "*",
     "react-redux": "^*",
     "redux": "^*",
+    "redux-form": "^6.5.0",
     "redux-promise": "^0.5.3"
   }
 }
