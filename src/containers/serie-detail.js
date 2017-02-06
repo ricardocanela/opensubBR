@@ -30,8 +30,10 @@ class SerieDetail extends Component {
         <form>
           <label>Season</label>
           <input
-          value={this.state.season_search}
-          onChange={event => this.onInputChangeSeason(event.target.value)} />
+            value={this.state.season_search}
+            onChange={event => this.onInputChangeSeason(event.target.value)} >
+          </input>
+
           <br/>
           <label>Episode</label>
           <input
@@ -47,32 +49,32 @@ class SerieDetail extends Component {
   }
 
   detailsView = () => {
+    const IMDB_URL = "http://www.imdb.com/title/"
     return (
       <div>
-        <h3>Detalhes da Série</h3>
-        <div>{this.props.serie.title}</div>
-        <div>Link para o IMDB: {this.props.serie.imdbid}</div>
+        <h3>{this.props.serie.title}</h3>
+        <a href={IMDB_URL+this.props.serie.imdbid}>Link para o IMDB</a>
       </div>
     );
   }
 
   renderSearchResult() {
     if(!this.props.searchResult) {
-      return <div>Waiting for search...</div>
+      return <div>Esperando Busca...</div>
     } else {
     return this.props.searchResult.pb.map( (sub) => {
         return (
           <div className="collection-item"
           key={sub.date}>
-            <li className="row">
-            <div className="col s8">
-              <h6>Nome do Arquivo: </h6>
-              {sub.subFilename}
-              <h6>Downloads:</h6>
-              {sub.downloads}
-            </div>
-            <div className="col s4">
-              <a className="waves-effect waves-light btn" href={sub.url}>Download</a>
+            <li>
+            <div>
+              <h12>Nome: {sub.subFilename}</h12>
+              <br/>
+              <h12>Quantidade de Downloads: {sub.downloads}</h12>
+              <br/>
+              <div className="chip">
+                <a href={sub.url}>Download</a>
+              </div>
             </div>
             </li>
           </div>
@@ -83,15 +85,20 @@ class SerieDetail extends Component {
 
   render() {
     if(!this.props.serie) {
-      return <div> Select a serie to get started!</div>;
+      return <div> Escolha uma série para inicar a busca!</div>;
     }
 
     return (
-      <div className="col s8">
+    <div>
+      <div className="col s6">
         {this.detailsView()}
         {this.formView()}
+      </div>
+      <div className="col s6">
+        <h3>Legendas Encontradas</h3>
         <ul className="collection">{this.renderSearchResult()}</ul>
       </div>
+    </div>
     );
   }
 }

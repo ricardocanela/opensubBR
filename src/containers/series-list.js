@@ -12,13 +12,13 @@ class SeriesList extends Component {
   renderList() {
     return this.props.series.map((serie) => {
       return (
-      <div className="collection-item"
-        key={serie.imdbid}>
-        <li
-          onClick={() => this.onClickSelect(serie)}>
+        <a
+          key={serie.imdbid}
+          onClick={() => this.onClickSelect(serie)}
+          className="collection-item">
           {serie.title}
-        </li>
-      </div>
+        </a>
+
       );
     });
   }
@@ -26,7 +26,7 @@ class SeriesList extends Component {
 
   render() {
     return (
-      <ul className="collection">{this.renderList()}</ul>
+      <div className="collection">{this.renderList()}</div>
     )
   }
 }

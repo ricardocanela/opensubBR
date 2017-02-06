@@ -1,7 +1,7 @@
 export default function() {
   return [
     {
-      title: 'Lost - 2004(ABC)',
+      title: 'Lost',
       imdbid: 'tt0411008',
       season: null,
       episode: null
