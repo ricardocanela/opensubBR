@@ -13,6 +13,12 @@ export default function() {
       season: null,
       episode: null
 
+    },
+    {
+      title: 'Vikings',
+      imdbid: 'tt2306299',
+      season: null,
+      episode: null
     }
   ]
 }

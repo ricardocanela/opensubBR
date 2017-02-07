@@ -1,7 +1,7 @@
-import { FETCH_DOWNLOAD } from '../actions/index';
+import { FETCH_SEARCH } from '../actions/index';
 export default function(state = null, action) {
   switch(action.type) {
-    case FETCH_DOWNLOAD:
+    case FETCH_SEARCH:
       return action.payload;
   }
   return state

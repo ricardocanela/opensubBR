@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { selectSerie } from '../actions/index';
+import { selectTVShow } from '../actions/index';
 
 
 class SeriesList extends Component {
 
-  onClickSelect(serie) {
-    this.props.selectSerie(serie);
+  onClickSelect(tvShow) {
+    this.props.selectTVShow(tvShow);
   }
 
   renderList() {
-    return this.props.series.map((serie) => {
+    return this.props.tvShows.map((tvShow) => {
       return (
         <a
-          key={serie.imdbid}
-          onClick={() => this.onClickSelect(serie)}
+          key={tvShow.imdbid}
+          onClick={() => this.onClickSelect(tvShow)}
           className="collection-item">
-          {serie.title}
+          {tvShow.title}
         </a>
 
       );
@@ -33,8 +33,8 @@ class SeriesList extends Component {
 
 function mapStateToProps(state) {
   return {
-    series: state.series
+    tvShows: state.tvShows
   };
 }
 
-export default connect(mapStateToProps, { selectSerie })(SeriesList);
+export default connect(mapStateToProps, { selectTVShow })(SeriesList);

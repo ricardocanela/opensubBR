@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { requestDownload } from '../actions/index';
+import { requestSearch } from '../actions/index';
 
 class SerieDetail extends Component {
 
@@ -18,10 +18,10 @@ class SerieDetail extends Component {
     this.setState({episode_search: episode});
   }
 
-  onClickDownload(serie) {
-    serie.season = parseInt(this.state.season_search);
-    serie.episode = parseInt(this.state.episode_search);
-    this.props.requestDownload(serie);
+  onClickSearch(tvShow) {
+    tvShow.season = parseInt(this.state.season_search);
+    tvShow.episode = parseInt(this.state.episode_search);
+    this.props.requestSearch(tvShow);
   }
 
   formView = () => {
@@ -41,7 +41,7 @@ class SerieDetail extends Component {
           onChange={event => this.onInputChangeEpisode(event.target.value)} />
         </form>
         <a className="waves-effect waves-light btn"
-        onClick={() => this.onClickDownload(this.props.serie)}>
+        onClick={() => this.onClickSearch(this.props.tvShow)}>
         Search
         </a>
       </div>
@@ -52,8 +52,8 @@ class SerieDetail extends Component {
     const IMDB_URL = "http://www.imdb.com/title/"
     return (
       <div>
-        <h3>{this.props.serie.title}</h3>
-        <a href={IMDB_URL+this.props.serie.imdbid}>Link para o IMDB</a>
+        <h3>{this.props.tvShow.title}</h3>
+        <a href={IMDB_URL+this.props.tvShow.imdbid}>Link para o IMDB</a>
       </div>
     );
   }
@@ -84,7 +84,7 @@ class SerieDetail extends Component {
   }
 
   render() {
-    if(!this.props.serie) {
+    if(!this.props.tvShow) {
       return <div> Escolha uma série para inicar a busca!</div>;
     }
 
@@ -105,9 +105,9 @@ class SerieDetail extends Component {
 
 function mapStateToProps(state) {
   return {
-    serie: state.activeSerie,
+    tvShow: state.activeTVShow,
     searchResult: state.searchResult
   };
 }
 
-export default connect(mapStateToProps, { requestDownload })(SerieDetail);
+export default connect(mapStateToProps, { requestSearch })(SerieDetail);
