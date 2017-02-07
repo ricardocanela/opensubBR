@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import SeriesList from '../containers/series-list';
-import SerieDetail from '../containers/serie-detail';
+import TVShowList from '../containers/tvshow-list';
+import TVShowDetail from '../containers/tvshow-detail';
 import NavBar from './navbar';
 
 
@@ -12,10 +12,10 @@ export default class App extends Component {
         <div className="row">
           <div className="col s4">
               <h3>Lista de Séries</h3>
-              <SeriesList />
+              <TVShowList />
           </div>
           <div className="col s8">
-            <SerieDetail />
+            <TVShowDetail />
           </div>
         </div>
       </div>

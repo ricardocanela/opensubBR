@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { selectTVShow } from '../actions/index';
 
 
-class SeriesList extends Component {
+class TVShowList extends Component {
 
   onClickSelect(tvShow) {
     this.props.selectTVShow(tvShow);
@@ -37,4 +37,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { selectTVShow })(SeriesList);
+export default connect(mapStateToProps, { selectTVShow })(TVShowList);

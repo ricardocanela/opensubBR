@@ -3,7 +3,7 @@ import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { requestSearch } from '../actions/index';
 
-class SerieDetail extends Component {
+class TVShowDetail extends Component {
 
   constructor(props) {
     super(props);
@@ -110,4 +110,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { requestSearch })(SerieDetail);
+export default connect(mapStateToProps, { requestSearch })(TVShowDetail);
