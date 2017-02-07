@@ -2,51 +2,9 @@ import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { requestSearch } from '../actions/index';
+import TVShowForm from './tvshow-form';
 
 class TVShowDetail extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {season_search:' ', episode_search: ' '};
-  }
-
-  onInputChangeSeason(season) {
-    this.setState({season_search: season});
-  }
-
-  onInputChangeEpisode(episode) {
-    this.setState({episode_search: episode});
-  }
-
-  onClickSearch(tvShow) {
-    tvShow.season = parseInt(this.state.season_search);
-    tvShow.episode = parseInt(this.state.episode_search);
-    this.props.requestSearch(tvShow);
-  }
-
-  formView = () => {
-    return (
-      <div>
-        <form>
-          <label>Season</label>
-          <input
-            value={this.state.season_search}
-            onChange={event => this.onInputChangeSeason(event.target.value)} >
-          </input>
-
-          <br/>
-          <label>Episode</label>
-          <input
-          value={this.state.episode_search}
-          onChange={event => this.onInputChangeEpisode(event.target.value)} />
-        </form>
-        <a className="waves-effect waves-light btn"
-        onClick={() => this.onClickSearch(this.props.tvShow)}>
-        Search
-        </a>
-      </div>
-    );
-  }
 
   detailsView = () => {
     const IMDB_URL = "http://www.imdb.com/title/"
@@ -92,7 +50,7 @@ class TVShowDetail extends Component {
     <div>
       <div className="col s6">
         {this.detailsView()}
-        {this.formView()}
+        <TVShowForm />
       </div>
       <div className="col s6">
         <h3>Legendas Encontradas</h3>
