@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import TVShowForm from './tvshow-form';
-import TVShowSearchResult from './tvshow-search-result';
+
 
 class TVShowDetail extends Component {
 
@@ -17,19 +17,15 @@ class TVShowDetail extends Component {
 
   render() {
     if(!this.props.tvShow) {
-      return <div> Escolha uma série para inicar a busca!</div>;
+      return (
+        <h3>Escolha uma Série</h3>
+      )
     }
 
     return (
     <div>
-      <div className="col s6">
-        {this.detailsView()}
-        <TVShowForm />
-      </div>
-      <div className="col s6">
-        <h3>Legendas Encontradas</h3>
-        <TVShowSearchResult />
-      </div>
+      {this.detailsView()}
+      <TVShowForm />
     </div>
     );
   }

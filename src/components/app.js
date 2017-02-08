@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TVShowList from '../containers/tvshow-list';
 import TVShowDetail from '../containers/tvshow-detail';
+import TVShowSearchResult from '../containers/tvshow-search-result';
 import NavBar from './navbar';
 
 
@@ -13,7 +14,14 @@ export default class App extends Component {
             Content
           </div>
           <div className="col s10">
-            <TVShowDetail />
+            <div className="row">
+              <div className="col s6">
+                <TVShowDetail />
+              </div>
+              <div className="col s6">
+                <TVShowSearchResult />
+              </div>
+            </div>
           </div>
         </div>
     );

@@ -5,9 +5,11 @@ class TVShowSearchResult extends Component {
 
   renderSearchResult() {
     if(!this.props.searchResult) {
-      <div className="progress">
-        <div className="indeterminate"></div>
-     </div>
+      return (
+        <div className="progress">
+          <div className="indeterminate"></div>
+        </div>
+      );
     } else {
     return this.props.searchResult.pb.map( (sub) => {
         return (
@@ -32,9 +34,12 @@ class TVShowSearchResult extends Component {
   render() {
 
     return (
-      <ul className="collection">
-        {this.renderSearchResult()}
-      </ul>
+      <div>
+        <h3>Legendas Encontradas</h3>
+        <ul className="collection">
+          {this.renderSearchResult()}
+        </ul>
+      </div>
     );
   }
 }

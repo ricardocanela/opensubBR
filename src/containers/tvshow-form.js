@@ -48,7 +48,8 @@ class TVShowForm extends Component {
 
 function mapStateToProps(state) {
   return {
-    tvShow: state.activeTVShow
+    tvShow: state.activeTVShow,
+    searchResult: state.searchResult
   };
 }
 
