@@ -12,21 +12,32 @@ class TVShowList extends Component {
   renderList() {
     return this.props.tvShows.map((tvShow) => {
       return (
-        <a
+        <li
           key={tvShow.imdbid}
-          onClick={() => this.onClickSelect(tvShow)}
-          className="collection-item">
-          {tvShow.title}
-        </a>
+          onClick={() => this.onClickSelect(tvShow)}>
+          <a>{tvShow.title}</a>
+        </li>
 
       );
     });
   }
 
-
   render() {
     return (
-      <div className="collection">{this.renderList()}</div>
+      <div>
+        <ul id="slide-out" className="side-nav fixed">
+          <li>
+            <div className="userView">
+              <div className="background">
+                <img  />
+              </div>
+              <h5>Lista de Séries</h5>
+            </div>
+          </li>
+          {this.renderList()}
+        </ul>
+        <a data-activates="slide-out" className="button-collapse"><i className="material-icons">menu</i></a>
+      </div>
     )
   }
 }

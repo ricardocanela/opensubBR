@@ -7,18 +7,15 @@ import NavBar from './navbar';
 export default class App extends Component {
   render() {
     return (
-      <div>
-        <NavBar />
         <div className="row">
-          <div className="col s4">
-              <h3>Lista de Séries</h3>
-              <TVShowList />
+          <TVShowList />
+          <div className="col s2">
+            Content
           </div>
-          <div className="col s8">
+          <div className="col s10">
             <TVShowDetail />
           </div>
         </div>
-      </div>
     );
   }
 }

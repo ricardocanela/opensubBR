@@ -5,7 +5,9 @@ class TVShowSearchResult extends Component {
 
   renderSearchResult() {
     if(!this.props.searchResult) {
-      return <div>Esperando Busca...</div>
+      <div className="progress">
+        <div className="indeterminate"></div>
+     </div>
     } else {
     return this.props.searchResult.pb.map( (sub) => {
         return (
