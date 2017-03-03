@@ -23,9 +23,8 @@ class TVShowDetail extends Component {
     }
 
     return (
-    <div>
+    <div className="row">
       {this.detailsView()}
-      <TVShowForm />
     </div>
     );
   }

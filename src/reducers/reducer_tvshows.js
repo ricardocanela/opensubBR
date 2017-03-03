@@ -19,6 +19,12 @@ export default function() {
       imdbid: 'tt2306299',
       season: null,
       episode: null
+    },
+    {
+      title: 'True Detective',
+      imdbid: 'tt2356777',
+      season: null,
+      episode: null
     }
   ]
 }
