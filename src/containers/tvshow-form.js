@@ -18,9 +18,14 @@ class TVShowForm extends Component {
   }
 
   sendRequestSearch() {
-    this.props.tvShow.season = parseInt(this.state.season_search);
-    this.props.tvShow.episode = parseInt(this.state.episode_search);
-    this.props.requestSearch(this.props.tvShow)
+    const tvShowSearchTerms = this.props.tvShow;
+    const seasonSearchTerm = parseInt(this.state.season_search);
+    const episodeSearchTerm = parseInt(this.state.episode_search);
+
+    tvShowSearchTerms.season = seasonSearchTerm;
+    tvShowSearchTerms.episode = episodeSearchTerm;
+
+    this.props.requestSearch(tvShowSearchTerms)
     .then( ()=> {
       this.props.contentStatusChange(true);
     });
