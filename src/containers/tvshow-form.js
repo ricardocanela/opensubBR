@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { requestSearch } from '../actions/index';
+import TVShowSearchResult from './tvshow-search-result.js'
 
 class TVShowForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {season_search:'', episode_search:'', searchResult: null}
+    this.state = {season_search:'', episode_search:'', resultContent: false}
   }
 
   onInputChangeSeason(season) {
@@ -21,47 +22,18 @@ class TVShowForm extends Component {
     this.props.tvShow.episode = parseInt(this.state.episode_search);
     this.props.requestSearch(this.props.tvShow)
     .then( ()=> {
-      this.setState({searchResult: this.props.searchResult});
+      this.setState({resultContent: true});
     });
   }
 
   onClickSearch() {
-    if (!this.state.searchResult) {
+    if (!this.state.resultContent) {
       this.requestSearch();
     } else {
-      this.setState({searchResult: null})
+      this.setState({resultContent: false})
       this.requestSearch();
     }
   }
-
-  renderSearchResult() {
-      if(!this.state.searchResult) {
-        return (
-          <div className="progress">
-            <div className="indeterminate"></div>
-          </div>
-        );
-      } else {
-      return this.state.searchResult.pb.map( (sub) => {
-          return (
-            <div className="collection-item"
-            key={sub.date}>
-              <li>
-              <div>
-                <h12>Nome: {sub.subFilename}</h12>
-                <br/>
-                <h12>Quantidade de Downloads: {sub.downloads}</h12>
-                <br/>
-                <div className="chip">
-                  <a href={sub.url}>Download</a>
-                </div>
-              </div>
-              </li>
-            </div>
-          );
-        });
-      }
-    }
 
   render () {
     return (
@@ -83,12 +55,9 @@ class TVShowForm extends Component {
           Search
           </a>
         </div>
-        <div className="col s6">
-          <h3>Legendas Encontradas</h3>
-          <ul className="collection">
-            {this.renderSearchResult()}
-          </ul>
-        </div>
+        <TVShowSearchResult
+          resultContent={this.state.resultContent}
+        />
       </div>
     );
   };
