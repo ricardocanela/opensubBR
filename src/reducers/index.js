@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import TVShowsReducer from './reducer_tvshows';
-import ActiveTVShow from './reducer_active_tvshow';
-import SearchAPI from './reducer_search_api';
-import ContentStatusChange from './reducer_content_status_change';
+import TVShowsReducer from './reducer-tvshows';
+import ActiveTVShow from './reducer-active-tvshow';
+import SearchAPI from './reducer-search_api';
+import ContentStatusChange from './reducer-content-status-change';
 
 const rootReducer = combineReducers({
   tvShows: TVShowsReducer,
