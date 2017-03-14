@@ -8,7 +8,7 @@ class TVShowSearchResult extends Component {
   }
 
   renderSearchResult() {
-      if(!this.props.resultContentResponse) {
+      if(!this.props.contentStatus) {
         return (
           <div className="progress">
             <div className="indeterminate"></div>
@@ -53,7 +53,7 @@ class TVShowSearchResult extends Component {
 function mapStateToProps(state) {
   return {
       searchResult: state.searchResult,
-      requestContentResponse: state.requestContentResponse
+      contentStatus: state.contentStatus
   };
 }
 
