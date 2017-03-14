@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import { requestSearch } from '../actions/index';
 
 
 class TVShowSearchResult extends Component {
@@ -9,7 +8,7 @@ class TVShowSearchResult extends Component {
   }
 
   renderSearchResult() {
-      if(!this.props.resultContent) {
+      if(!this.props.resultContentResponse) {
         return (
           <div className="progress">
             <div className="indeterminate"></div>
@@ -38,7 +37,6 @@ class TVShowSearchResult extends Component {
     }
 
   render() {
-    console.log(this.props.searchResult);
     return (
       <div>
        <h3>Legendas Encontradas</h3>
@@ -54,8 +52,9 @@ class TVShowSearchResult extends Component {
 
 function mapStateToProps(state) {
   return {
-      searchResult: state.searchResult
+      searchResult: state.searchResult,
+      requestContentResponse: state.requestContentResponse
   };
 }
 
-export default connect(mapStateToProps, {requestSearch})(TVShowSearchResult);
+export default connect(mapStateToProps)(TVShowSearchResult);

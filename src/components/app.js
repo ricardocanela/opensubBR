@@ -16,10 +16,13 @@ export default class App extends Component {
           </div>
           <div className="col s10">
             <div className="row">
-
+              <div className="col s6">
                 <TVShowDetail />
                 <TVShowForm />
-              
+              </div>
+              <div className="col s6">
+                <TVShowSearchResult />
+              </div>
             </div>
           </div>
         </div>

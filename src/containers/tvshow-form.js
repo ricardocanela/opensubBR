@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { requestSearch } from '../actions/index';
-import TVShowSearchResult from './tvshow-search-result.js'
+import { requestContent } from '../actions/index';
 
 class TVShowForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {season_search:'', episode_search:'', resultContent: false}
+    this.state = {season_search:'', episode_search:''}
   }
 
   onInputChangeSeason(season) {
@@ -22,15 +22,15 @@ class TVShowForm extends Component {
     this.props.tvShow.episode = parseInt(this.state.episode_search);
     this.props.requestSearch(this.props.tvShow)
     .then( ()=> {
-      this.setState({resultContent: true});
+      this.props.requestContent(true);
     });
   }
 
   onClickSearch() {
-    if (!this.state.resultContent) {
+    if (!this.props.requestContentResponse) {
       this.requestSearch();
     } else {
-      this.setState({resultContent: false})
+      this.props.requestContent(false);
       this.requestSearch();
     }
   }
@@ -55,9 +55,6 @@ class TVShowForm extends Component {
           Search
           </a>
         </div>
-        <TVShowSearchResult
-          resultContent={this.state.resultContent}
-        />
       </div>
     );
   };
@@ -67,9 +64,10 @@ class TVShowForm extends Component {
 function mapStateToProps(state) {
   return {
     tvShow: state.activeTVShow,
-    searchResult: state.searchResult
+    searchResult: state.searchResult,
+    requestContentResponse: state.requestContentResponse
 
   };
 }
 
-export default connect(mapStateToProps, {requestSearch})(TVShowForm);
+export default connect(mapStateToProps, {requestSearch, requestContent})(TVShowForm);

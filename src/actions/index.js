@@ -1,6 +1,15 @@
 import OpenSubtitles from 'opensubtitles-universal-api';
 export const FETCH_SEARCH = 'FETCH_SEARCH';
 export const SELECT_TVSHOW = 'SELECT_TVSHOW';
+export const REQUEST_CONTENT = 'REQUEST_CONTENT';
+
+
+export function requestContent(status) {
+  return {
+    type: REQUEST_CONTENT,
+    payload: status
+  };
+}
 
 export function selectTVShow(serie) {
   return {
