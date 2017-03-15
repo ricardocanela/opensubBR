@@ -43,7 +43,7 @@ class TVShowForm extends Component {
   render () {
     return (
       <div className="row">
-        <div className="col s6">
+        <div className="col s8">
           <form>
             <label>Season</label>
             <input
