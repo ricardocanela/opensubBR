@@ -1,4 +1,13 @@
-# React Simple Starter with Materialize
-Starter template for React and Materialize framework.
-Build to be used with Webpack.
-run npm install, npm start and serve from localhost:8080
+OpenSubBR
+==================
+
+# Descrição básica
+
+Utilizando uma api do opensubtitles.org, o OpenSubBR é uma aplicação web feita em ReactJS. O objetivo do projeto é facilitar a obtenção de legendas em português-br.
+
+# Como executar?
+
+      npm install
+      npm start
+
+O servidor estará disponível em **localhost:8080**
