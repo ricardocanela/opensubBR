@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { requestSearch } from '../actions/index';
-import { contentStatusChange } from '../actions/index';
+import { requestSearch, contentStatusChange } from '../actions/index';
+
 
 class TVShowForm extends Component {
   constructor(props) {
@@ -17,7 +17,8 @@ class TVShowForm extends Component {
     this.setState({episode_search: episode});
   }
 
-  sendRequestSearch() {
+  sendSearchRequest() {
+
     const tvShowSearchTerms = this.props.tvShow;
     const seasonSearchTerm = parseInt(this.state.season_search);
     const episodeSearchTerm = parseInt(this.state.episode_search);
@@ -32,11 +33,11 @@ class TVShowForm extends Component {
   }
 
   onClickSearch() {
-    if (!this.props.contentStatus) {
-      this.sendRequestSearch();
+    if (!this.props.searchContentStatus) {
+      this.sendSearchRequest();
     } else {
       this.props.contentStatusChange(false);
-      this.sendRequestSearch();
+      this.sendSearchRequest();
     }
   }
 
@@ -70,7 +71,7 @@ function mapStateToProps(state) {
   return {
     tvShow: state.activeTVShow,
     searchResult: state.searchResult,
-    contentStatus: state.contentStatus
+    searchContentStatus: state.searchContentStatus
 
   };
 }
