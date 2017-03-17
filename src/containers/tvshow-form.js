@@ -32,6 +32,47 @@ class TVShowForm extends Component {
     });
   }
 
+  constructArray(value) {
+    var arrayOfValue = new Array();
+    for (var i = 0; i < value; i++) {
+      arrayOfValue[i] = i + 1;
+    }
+    return arrayOfValue;
+  }
+
+  generatingOptions(array) {
+    return array.map( (element) => {
+      return(
+        <option
+          value={element}
+          key={element}>
+          {element}
+        </option>
+      );
+    })
+  }
+
+  optionsForSeasons() {
+    if(!this.props.tvShow) {
+
+    } else {
+      const numberOfSeasons = this.props.tvShow.numberOfSeasons;
+      const arrayOfSeasons = this.constructArray(numberOfSeasons);
+      return this.generatingOptions(arrayOfSeasons);
+    }
+  }
+
+  optionsForEpisodes() {
+    if(!this.props.tvShow) {
+
+    } else {
+      const numberOfEpisodes = this.props.tvShow.numberOfEpisodesPerSeason;
+      const arrayOfEpisodes = this.constructArray(numberOfEpisodes);
+      console.log(numberOfEpisodes);
+      return this.generatingOptions(arrayOfEpisodes);
+    }
+  }
+
   onClickSearch() {
     if (!this.props.searchContentStatus) {
       this.sendSearchRequest();
@@ -47,15 +88,26 @@ class TVShowForm extends Component {
         <div className="col s8">
           <form>
             <label>Season</label>
-            <input
-              value={this.state.season_search}
-              onChange={event => this.onInputChangeSeason(event.target.value)} >
-            </input>
+            <div className="input-field">
+              <select
+                className="browser-default"
+                value={this.state.season_search}
+                onChange={event => this.onInputChangeSeason(event.target.value)}>
+                {this.optionsForSeasons()}
+              </select>
+            </div>
             <label>Episode</label>
-            <input
-            value={this.state.episode_search}
-            onChange={event => this.onInputChangeEpisode(event.target.value)} />
-          </form>
+              <div className="input-field">
+                <select
+                  className="browser-default"
+                  value={this.state.episode_search}
+                  onChange={event => this.onInputChangeEpisode(event.target.value)}>
+                  {this.optionsForEpisodes()}
+                </select>
+              </div>
+
+
+        </form>
           <a className="waves-effect waves-light btn"
           onClick={() => this.onClickSearch()}>
           Search

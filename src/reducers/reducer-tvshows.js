@@ -3,6 +3,8 @@ export default function() {
     {
       title: 'Lost',
       imdbid: 'tt0411008',
+      numberOfSeasons: 6,
+      numberOfEpisodesPerSeason: 10,
       season: null,
       episode: null
 
@@ -10,6 +12,8 @@ export default function() {
     {
       title: 'Game Of Thrones',
       imdbid: 'tt0944947',
+      numberOfSeasons: 5,
+      numberOfEpisodesPerSeason: 10,
       season: null,
       episode: null
 
@@ -17,12 +21,16 @@ export default function() {
     {
       title: 'Vikings',
       imdbid: 'tt2306299',
+      numberOfSeasons: 5,
+      numberOfEpisodesPerSeason: 10,
       season: null,
       episode: null
     },
     {
       title: 'True Detective',
       imdbid: 'tt2356777',
+      numberOfSeasons: 5,
+      numberOfEpisodesPerSeason: 10,
       season: null,
       episode: null
     }
