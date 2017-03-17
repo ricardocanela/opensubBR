@@ -63,20 +63,21 @@ class TVShowForm extends Component {
   }
 
   optionsForEpisodes() {
-    if(!this.props.tvShow) {
-
-    } else {
+    if(this.props.tvShow) {
       const numberOfEpisodes = this.props.tvShow.numberOfEpisodesPerSeason;
       const arrayOfEpisodes = this.constructArray(numberOfEpisodes);
       return this.generatingOptions(arrayOfEpisodes);
+    } else {
+      // Do nothing
     }
   }
 
   onClickSearch() {
-    if (!this.props.searchContentStatus) {
-      this.sendSearchRequest();
-    } else {
+    if (this.props.searchContentStatus) {
       this.props.contentStatusChange(false);
+      this.sendSearchRequest();
+
+    } else {
       this.sendSearchRequest();
     }
   }

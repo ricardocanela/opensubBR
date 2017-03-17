@@ -15,29 +15,32 @@ class TVShowSearchResult extends Component {
           </div>
         );
       } else {
-      return this.props.searchResult.map( (sub) => {
-          return (
-            <div className="collection-item"
-            key={sub.date}>
-              <li>
-              <div>
-                <h12>Nome: {sub.subFilename}</h12>
-                <br/>
-                <h12>Quantidade de Downloads: {sub.downloads}</h12>
-                <br/>
-                <div className="chip">
-                  <a href={sub.url}>Download</a>
+        if (this.props.searchResult) {
+          return this.props.searchResult.map( (sub) => {
+              return (
+                <div className="collection-item"
+                key={sub.date}>
+                  <li>
+                  <div>
+                    <h12>Nome: {sub.subFilename}</h12>
+                    <br/>
+                    <h12>Quantidade de Downloads: {sub.downloads}</h12>
+                    <br/>
+                    <div className="chip">
+                      <a href={sub.url}>Download</a>
+                    </div>
+                  </div>
+                  </li>
                 </div>
-              </div>
-              </li>
-            </div>
-          );
-        });
+              );
+            });
+        } else {
+          alert("Request não pode ser feito, pesquise novamente");
+        }
       }
     }
 
   render() {
-    console.log(this.props.searchResult);
     return (
       <div>
        <h3>Legendas Encontradas</h3>
