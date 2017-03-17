@@ -15,7 +15,7 @@ class TVShowSearchResult extends Component {
           </div>
         );
       } else {
-      return this.props.searchResult.pb.map( (sub) => {
+      return this.props.searchResult.map( (sub) => {
           return (
             <div className="collection-item"
             key={sub.date}>
@@ -37,6 +37,7 @@ class TVShowSearchResult extends Component {
     }
 
   render() {
+    console.log(this.props.searchResult);
     return (
       <div>
        <h3>Legendas Encontradas</h3>

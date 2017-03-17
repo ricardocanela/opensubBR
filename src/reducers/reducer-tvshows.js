@@ -4,7 +4,7 @@ export default function() {
       title: 'Lost',
       imdbid: 'tt0411008',
       numberOfSeasons: 6,
-      numberOfEpisodesPerSeason: 10,
+      numberOfEpisodesPerSeason: 22,
       season: null,
       episode: null
 
@@ -29,7 +29,7 @@ export default function() {
     {
       title: 'True Detective',
       imdbid: 'tt2356777',
-      numberOfSeasons: 5,
+      numberOfSeasons: 2,
       numberOfEpisodesPerSeason: 10,
       season: null,
       episode: null

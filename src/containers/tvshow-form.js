@@ -68,7 +68,6 @@ class TVShowForm extends Component {
     } else {
       const numberOfEpisodes = this.props.tvShow.numberOfEpisodesPerSeason;
       const arrayOfEpisodes = this.constructArray(numberOfEpisodes);
-      console.log(numberOfEpisodes);
       return this.generatingOptions(arrayOfEpisodes);
     }
   }
