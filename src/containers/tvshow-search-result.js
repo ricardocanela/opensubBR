@@ -7,35 +7,61 @@ class TVShowSearchResult extends Component {
     super(props);
   }
 
+ preLoader() {
+   return (
+     <div>
+       <div className="preloader-wrapper big active"></div>
+       <div className="preloader-wrapper big active"></div>
+       <div className="preloader-wrapper big active"></div>
+        <div className="preloader-wrapper big active">
+          <div className="spinner-layer spinner-green-only">
+              <div className="circle-clipper left">
+                <div className="circle"></div>
+              </div><div className="gap-patch">
+                <div className="circle"></div>
+              </div><div className="circle-clipper right">
+                <div className="circle"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+    );
+  }
+
+  subtitleComponents() {
+    return this.props.searchResult.map( (sub) => {
+        return (
+        <ul className="collection">
+          <div className="collection-item"
+          key={sub.date}>
+            <li>
+            <div>
+              <h12>Nome: {sub.subFilename}</h12>
+              <br/>
+              <h12>Quantidade de Downloads: {sub.downloads}</h12>
+              <br/>
+              <div className="chip">
+                <a href={sub.url}>Download</a>
+              </div>
+            </div>
+            </li>
+          </div>
+        </ul>
+        );
+      });
+  }
+
+
   renderSearchResult() {
       if(!this.props.searchContentStatus) {
-        return (
-          <div className="progress">
-            <div className="indeterminate"></div>
-          </div>
-        );
+        return this.preLoader();
       } else {
         if (this.props.searchResult) {
-          return this.props.searchResult.map( (sub) => {
-              return (
-                <div className="collection-item"
-                key={sub.date}>
-                  <li>
-                  <div>
-                    <h12>Nome: {sub.subFilename}</h12>
-                    <br/>
-                    <h12>Quantidade de Downloads: {sub.downloads}</h12>
-                    <br/>
-                    <div className="chip">
-                      <a href={sub.url}>Download</a>
-                    </div>
-                  </div>
-                  </li>
-                </div>
-              );
-            });
+          return this.subtitleComponents();
+
+
         } else {
-          alert("Request não pode ser feito, pesquise novamente");
+          alert("Nenhuma legenda encontrada, por favor, pesquise novamente");
         }
       }
     }
@@ -44,9 +70,7 @@ class TVShowSearchResult extends Component {
     return (
       <div>
        <h3>Legendas Encontradas</h3>
-        <ul className="collection">
           {this.renderSearchResult()}
-        </ul>
       </div>
     );
 
