@@ -22,9 +22,9 @@ class TVShowSearchResult extends Component {
               </div><div className="circle-clipper right">
                 <div className="circle"></div>
               </div>
-            </div>
           </div>
         </div>
+    </div>
     );
   }
 
@@ -58,8 +58,6 @@ class TVShowSearchResult extends Component {
       } else {
         if (this.props.searchResult) {
           return this.subtitleComponents();
-
-
         } else {
           alert("Nenhuma legenda encontrada, por favor, pesquise novamente");
         }
