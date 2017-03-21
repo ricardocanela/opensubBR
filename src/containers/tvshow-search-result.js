@@ -31,10 +31,12 @@ class TVShowSearchResult extends Component {
   subtitleComponents() {
     return this.props.searchResult.map((sub) => {
       return (
-        <ul className="collection">
+        <ul
+          className="collection"
+          key={sub.downloads}
+        >
           <div
             className="collection-item"
-            key={sub.date}
           >
             <li>
               <div>
