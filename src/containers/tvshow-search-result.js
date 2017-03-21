@@ -29,58 +29,63 @@ class TVShowSearchResult extends Component {
   }
 
   subtitleComponents() {
-    return this.props.searchResult.map( (sub) => {
-        return (
+    return this.props.searchResult.map((sub) => {
+      return (
         <ul className="collection">
-          <div className="collection-item"
-          key={sub.date}>
+          <div
+            className="collection-item"
+            key={sub.date}
+          >
             <li>
-            <div>
-              <h12>Nome: {sub.subFilename}</h12>
-              <br/>
-              <h12>Quantidade de Downloads: {sub.downloads}</h12>
-              <br/>
-              <div className="chip">
-                <a href={sub.url}>Download</a>
+              <div>
+                <h12>Nome: {sub.subFilename}</h12>
+                <br />
+                <h12>Quantidade de Downloads: {sub.downloads}</h12>
+                <br />
+                <div className="chip">
+                  <a href={sub.url}>Download</a>
+                </div>
               </div>
-            </div>
             </li>
           </div>
         </ul>
-        );
-      });
+      );
+    });
   }
 
 
   renderSearchResult() {
-      if(!this.props.searchContentStatus) {
-        return this.preLoader();
+    if (this.props.searchContentStatus) {
+      if (this.props.searchResult) {
+        return this.subtitleComponents();
       } else {
-        if (this.props.searchResult) {
-          return this.subtitleComponents();
-        } else {
-          alert("Nenhuma legenda encontrada, por favor, pesquise novamente");
-        }
+        alert("Nenhuma legenda encontrada, por favor, pesquise novamente");
       }
+    } else {
+      return this.preLoader();
     }
+  }
 
   render() {
     return (
       <div>
-       <h3>Legendas Encontradas</h3>
-          {this.renderSearchResult()}
+        <h3>Legendas Encontradas</h3>
+        {this.renderSearchResult()}
       </div>
     );
-
   }
-
 }
 
 function mapStateToProps(state) {
   return {
-      searchResult: state.searchResult,
-      searchContentStatus: state.searchContentStatus
+    searchResult: state.searchResult,
+    searchContentStatus: state.searchContentStatus,
   };
 }
+
+TVShowSearchResult.propTypes = {
+  searchContentStatus: React.PropTypes.bool.isRequired,
+  searchResult: React.PropTypes.array.isRequired,
+};
 
 export default connect(mapStateToProps)(TVShowSearchResult);

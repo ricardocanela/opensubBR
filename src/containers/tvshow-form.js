@@ -51,7 +51,7 @@ class TVShowForm extends Component {
 
   generatingOptions(array) {
     return array.map((element) => {
-      return(
+      return (
         <option
           value={element}
           key={element}
@@ -63,9 +63,7 @@ class TVShowForm extends Component {
   }
 
   optionsForSeasons() {
-    if(!this.props.tvShow) {
-
-    } else {
+    if (this.props.tvShow) {
       const numberOfSeasons = this.props.tvShow.numberOfSeasons;
       const arrayOfSeasons = this.constructArray(numberOfSeasons);
       return this.generatingOptions(arrayOfSeasons);
@@ -124,16 +122,16 @@ class TVShowForm extends Component {
 function mapStateToProps(state) {
   return {
     tvShow: state.activeTVShow,
-    searchResult: state.searchResult,
     searchContentStatus: state.searchContentStatus,
   };
 }
 
 TVShowForm.propTypes = {
-  searchContentStatus: React.PropType.bool.isRequired,
-  contentStatusChange: React.PropType.func.isRequired,
-  requestSearch: React.PropType.func.isRequired,
-  tvShow: React.PropType.object.isRequired,
+  searchContentStatus: React.PropTypes.bool.isRequired,
+  contentStatusChange: React.PropTypes.func.isRequired,
+  requestSearch: React.PropTypes.func.isRequired,
+  tvShow: React.PropTypes.object.isRequired,
+
 };
 
 export default connect(mapStateToProps, { requestSearch, contentStatusChange })(TVShowForm);

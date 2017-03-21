@@ -8,7 +8,7 @@ const rootReducer = combineReducers({
   tvShows: TVShowsReducer,
   activeTVShow: ActiveTVShow,
   searchResult: SearchAPI,
-  searchContentStatus: ContentStatusChange
+  searchContentStatus: ContentStatusChange,
 });
 
 export default rootReducer;

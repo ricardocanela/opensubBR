@@ -36,7 +36,7 @@ function mapStateToProps(state) {
 }
 
 TVShowDetail.propTypes = {
-  tvShow: React.Proptypes.object.isRequired,
+  tvShow: React.PropTypes.object.isRequired,
 };
 
 

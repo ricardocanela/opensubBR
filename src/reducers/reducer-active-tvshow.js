@@ -1,8 +1,10 @@
 import { SELECT_TVSHOW } from '../actions/index';
-export default function(state = null, action) {
-  switch(action.type) {
+
+export default function(state = { }, action) {
+  switch (action.type) {
     case SELECT_TVSHOW:
       return action.payload;
+    default:
+      return state;
   }
-  return state
 }
