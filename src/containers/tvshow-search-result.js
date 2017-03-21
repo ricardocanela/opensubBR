@@ -7,24 +7,25 @@ class TVShowSearchResult extends Component {
     super(props);
   }
 
- preLoader() {
-   return (
-     <div>
-       <div className="preloader-wrapper big active"></div>
-       <div className="preloader-wrapper big active"></div>
-       <div className="preloader-wrapper big active"></div>
+  preLoader() {
+    return (
+      <div>
+        <div className="preloader-wrapper big active" />
+        <div className="preloader-wrapper big active" />
+        <div className="preloader-wrapper big active" />
         <div className="preloader-wrapper big active">
           <div className="spinner-layer spinner-green-only">
-              <div className="circle-clipper left">
-                <div className="circle"></div>
-              </div><div className="gap-patch">
-                <div className="circle"></div>
-              </div><div className="circle-clipper right">
-                <div className="circle"></div>
+            <div className="circle-clipper left">
+              <div className="circle" />
+              <div className="gap-patch" />
+              <div className="circle" />
+              <div className="circle-clipper right">
+                <div className="circle" />
               </div>
+            </div>
           </div>
         </div>
-    </div>
+      </div>
     );
   }
 
@@ -57,11 +58,15 @@ class TVShowSearchResult extends Component {
 
 
   renderSearchResult() {
-    if (this.props.searchContentStatus) {
-      if (this.props.searchResult) {
+    const EMPTY = 0;
+    const searchResult = this.props.searchResult;
+    const searchContentStatus = this.props.searchContentStatus;
+
+    if (searchContentStatus === true) {
+      if (searchResult.length > EMPTY) {
         return this.subtitleComponents();
-      } else {
-        alert("Nenhuma legenda encontrada, por favor, pesquise novamente");
+      } else if (searchResult.length === EMPTY) {
+        alert('Nenhuma legenda encontrada, por favor, pesquise novamente');
       }
     } else {
       return this.preLoader();
