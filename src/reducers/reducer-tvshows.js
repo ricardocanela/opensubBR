@@ -1,4 +1,4 @@
-export default function() {
+export default function () {
   return [
     {
       title: 'Lost',
@@ -6,7 +6,7 @@ export default function() {
       numberOfSeasons: 6,
       numberOfEpisodesPerSeason: 22,
       season: null,
-      episode: null
+      episode: null,
 
     },
     {
@@ -15,7 +15,7 @@ export default function() {
       numberOfSeasons: 5,
       numberOfEpisodesPerSeason: 10,
       season: null,
-      episode: null
+      episode: null,
 
     },
     {
@@ -24,7 +24,7 @@ export default function() {
       numberOfSeasons: 5,
       numberOfEpisodesPerSeason: 10,
       season: null,
-      episode: null
+      episode: null,
     },
     {
       title: 'True Detective',
@@ -32,7 +32,7 @@ export default function() {
       numberOfSeasons: 2,
       numberOfEpisodesPerSeason: 10,
       season: null,
-      episode: null
-    }
-  ]
+      episode: null,
+    },
+  ];
 }

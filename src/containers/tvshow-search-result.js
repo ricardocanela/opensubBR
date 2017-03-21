@@ -3,11 +3,7 @@ import { connect } from 'react-redux';
 
 
 class TVShowSearchResult extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  preLoader() {
+  static preLoader() {
     return (
       <div>
         <div className="preloader-wrapper big active" />
@@ -66,10 +62,10 @@ class TVShowSearchResult extends Component {
       if (searchResult.length > EMPTY) {
         return this.subtitleComponents();
       } else if (searchResult.length === EMPTY) {
-        alert('Nenhuma legenda encontrada, por favor, pesquise novamente');
+        return alert('Nenhuma legenda encontrada, por favor, pesquise novamente');
       }
-    } else {
-      return this.preLoader();
+    } else if (searchContentStatus === false) {
+      return TVShowSearchResult.preLoader();
     }
   }
 

@@ -27,21 +27,22 @@ class TVShowForm extends Component {
   }
 
   sendSearchRequest() {
+    const BASE = 10;
     const tvShowSearchTerms = this.props.tvShow;
-    const seasonSearchTerm = parseInt(this.state.season_search, 10);
-    const episodeSearchTerm = parseInt(this.state.episode_search, 10);
+    const seasonSearchTerm = parseInt(this.state.season_search, BASE);
+    const episodeSearchTerm = parseInt(this.state.episode_search, BASE);
 
     tvShowSearchTerms.season = seasonSearchTerm;
     tvShowSearchTerms.episode = episodeSearchTerm;
 
     this.props.requestSearch(tvShowSearchTerms)
-    .then(()=> {
+    .then(() => {
       this.props.contentStatusChange(true);
     });
   }
 
   constructArray(value) {
-    const arrayOfValue = new Array();
+    const arrayOfValue = [];
     let i = 0;
     for (i = 0; i < value; i += 1) {
       arrayOfValue[i] = i + 1;
