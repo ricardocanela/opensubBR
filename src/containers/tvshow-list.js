@@ -14,7 +14,8 @@ class TVShowList extends Component {
       return (
         <li
           key={tvShow.imdbid}
-          onClick={() => this.onClickSelect(tvShow)}>
+          onClick={() => this.onClickSelect(tvShow)}
+        >
           <a>{tvShow.title}</a>
         </li>
 
@@ -28,9 +29,7 @@ class TVShowList extends Component {
         <ul id="slide-out" className="side-nav fixed">
           <li>
             <div className="userView">
-              <div className="background">
-                <img  />
-              </div>
+              <div className="background" />
               <h5>Lista de Séries</h5>
             </div>
           </li>
@@ -38,15 +37,20 @@ class TVShowList extends Component {
         </ul>
         <a data-activates="slide-out" className="button-collapse"><i className="material-icons">menu</i></a>
       </div>
-    )
+    );
   }
-  
+
 }
 
 function mapStateToProps(state) {
   return {
-    tvShows: state.tvShows
+    tvShows: state.tvShows,
   };
 }
+
+TVShowList.propTypes = {
+  selectTVShow: React.PropTypes.func.isRequired,
+  tvShows: React.PropTypes.array.isRequired,
+};
 
 export default connect(mapStateToProps, { selectTVShow })(TVShowList);
