@@ -69,6 +69,7 @@ class TVShowForm extends Component {
       const arrayOfSeasons = this.constructArray(numberOfSeasons);
       return this.generatingOptions(arrayOfSeasons);
     }
+    return undefined;
   }
 
   optionsForEpisodes() {
@@ -77,6 +78,7 @@ class TVShowForm extends Component {
       const arrayOfEpisodes = this.constructArray(numberOfEpisodes);
       return this.generatingOptions(arrayOfEpisodes);
     }
+    return undefined;
   }
 
   render() {

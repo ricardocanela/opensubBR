@@ -67,6 +67,7 @@ class TVShowSearchResult extends Component {
     } else if (searchContentStatus === false) {
       return TVShowSearchResult.preLoader();
     }
+    return undefined;
   }
 
   render() {
