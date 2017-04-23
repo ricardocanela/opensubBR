@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import SubtitleList from './subtitle-list';
 
 
 class TVShowSearchResult extends Component {
@@ -25,34 +26,6 @@ class TVShowSearchResult extends Component {
     );
   }
 
-  subtitleComponents() {
-    return this.props.searchResult.map((sub) => {
-      return (
-        <ul
-          className="collection"
-          key={sub.downloads}
-        >
-          <div
-            className="collection-item"
-          >
-            <li>
-              <div>
-                <h12>Nome: {sub.subFilename}</h12>
-                <br />
-                <h12>Quantidade de Downloads: {sub.downloads}</h12>
-                <br />
-                <div className="chip">
-                  <a href={sub.url}>Download</a>
-                </div>
-              </div>
-            </li>
-          </div>
-        </ul>
-      );
-    });
-  }
-
-
   renderSearchResult() {
     const EMPTY = 0;
     const searchResult = this.props.searchResult;
@@ -60,7 +33,7 @@ class TVShowSearchResult extends Component {
 
     if (searchContentStatus === true) {
       if (searchResult.length > EMPTY) {
-        return this.subtitleComponents();
+        return <SubtitleList />;
       } else if (searchResult.length === EMPTY) {
         return alert('Nenhuma legenda encontrada, por favor, pesquise novamente');
       }
