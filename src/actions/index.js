@@ -1,7 +1,7 @@
 import OpenSubtitles from 'opensubtitles-universal-api';
 
 export const FETCH_SEARCH = 'FETCH_SEARCH';
-export const SELECT_TVSHOW = 'SELECT_TVSHOW';
+export const SELECT_TARGET = 'SELECT_TARGET';
 export const CONTENT_STATUS_CHANGE = 'CONTENT_STATUS';
 
 
@@ -12,10 +12,10 @@ export function contentStatusChange(status) {
   };
 }
 
-export function selectTVShow(serie) {
+export function selectTarget(target) {
   return {
-    type: SELECT_TVSHOW,
-    payload: serie,
+    type: SELECT_TARGET,
+    payload: target,
   };
 }
 

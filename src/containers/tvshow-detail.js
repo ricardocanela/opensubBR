@@ -8,16 +8,16 @@ class TVShowDetail extends Component {
     const IMDB_URL = 'http://www.imdb.com/title/';
     return (
       <div>
-        <h3>{this.props.tvShow.title}</h3>
-        <a href={IMDB_URL + this.props.tvShow.imdbid}>Link para o IMDB</a>
+        <h3>{this.props.target.title}</h3>
+        <a href={IMDB_URL + this.props.target.imdbid}>Link para o IMDB</a>
       </div>
     );
   }
 
   render() {
-    if (!this.props.tvShow) {
+    if (!this.props.target) {
       return (
-        <h3>Escolha uma Série</h3>
+        <h3>Escolha algo para assistir</h3>
       );
     }
 
@@ -31,12 +31,12 @@ class TVShowDetail extends Component {
 
 function mapStateToProps(state) {
   return {
-    tvShow: state.activeTVShow,
+    target: state.activeTarget,
   };
 }
 
 TVShowDetail.propTypes = {
-  tvShow: React.PropTypes.object.isRequired,
+  target: React.PropTypes.object.isRequired,
 };
 
 

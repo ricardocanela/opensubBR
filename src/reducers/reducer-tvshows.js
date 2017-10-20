@@ -7,6 +7,7 @@ export default function () {
       numberOfEpisodesPerSeason: 22,
       season: null,
       episode: null,
+      classification: 'tvshow',
 
     },
     {
@@ -16,7 +17,7 @@ export default function () {
       numberOfEpisodesPerSeason: 10,
       season: null,
       episode: null,
-
+      classification: 'tvshow',
     },
     {
       title: 'Vikings',
@@ -25,6 +26,7 @@ export default function () {
       numberOfEpisodesPerSeason: 10,
       season: null,
       episode: null,
+      classification: 'tvshow',
     },
     {
       title: 'True Detective',
@@ -33,6 +35,7 @@ export default function () {
       numberOfEpisodesPerSeason: 10,
       season: null,
       episode: null,
+      classification: 'tvshow',
     },
   ];
 }

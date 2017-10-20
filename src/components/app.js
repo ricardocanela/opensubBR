@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import TVShowList from '../containers/tvshow-list';
-import TVShowDetail from '../containers/tvshow-detail';
-import TVShowForm from '../containers/tvshow-form';
 import TVShowSearchResult from '../containers/tvshow-search-result';
-
+import FormController from '../containers/form-controller';
 
 export default class App extends Component {
   render() {
@@ -16,8 +14,7 @@ export default class App extends Component {
         <div className="col s10">
           <div className="row">
             <div className="col s6">
-              <TVShowDetail />
-              <TVShowForm />
+              <FormController />
             </div>
             <div className="col s6">
               <TVShowSearchResult />

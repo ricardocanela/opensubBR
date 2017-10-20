@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { selectTVShow } from '../actions/index';
+import { selectTarget } from '../actions/index';
 
 
 class TVShowList extends Component {
 
   onClickSelect(tvShow) {
-    this.props.selectTVShow(tvShow);
+    this.props.selectTarget(tvShow);
   }
 
-  renderList() {
+  renderListTvShows() {
     return this.props.tvShows.map((tvShow) => {
       return (
         <li
@@ -23,6 +23,20 @@ class TVShowList extends Component {
     });
   }
 
+  renderListMovies() {
+    return this.props.movies.map((movie) => {
+      return (
+        <li
+          key={movie.imdbid}
+          onClick={() => this.onClickSelect(movie)}
+        >
+          <a>{movie.title}</a>
+        </li>
+
+      );
+    });
+  }
+
   render() {
     return (
       <div>
@@ -30,10 +44,11 @@ class TVShowList extends Component {
           <li>
             <div className="userView">
               <div className="background" />
-              <h5>Lista de Séries</h5>
+              <h5>Lista de Conteúdo</h5>
             </div>
           </li>
-          {this.renderList()}
+          {this.renderListTvShows()}
+          {this.renderListMovies()}
         </ul>
         <a data-activates="slide-out" className="button-collapse"><i className="material-icons">menu</i></a>
       </div>
@@ -45,12 +60,13 @@ class TVShowList extends Component {
 function mapStateToProps(state) {
   return {
     tvShows: state.tvShows,
+    movies: state.movies,
   };
 }
 
 TVShowList.propTypes = {
-  selectTVShow: React.PropTypes.func.isRequired,
+  selectTarget: React.PropTypes.func.isRequired,
   tvShows: React.PropTypes.array.isRequired,
 };
 
-export default connect(mapStateToProps, { selectTVShow })(TVShowList);
+export default connect(mapStateToProps, { selectTarget })(TVShowList);

@@ -106,8 +106,6 @@ class TVShowForm extends Component {
                 {this.optionsForEpisodes()}
               </select>
             </div>
-
-
           </form>
           <a
             className="waves-effect waves-light btn"
@@ -124,7 +122,7 @@ class TVShowForm extends Component {
 
 function mapStateToProps(state) {
   return {
-    tvShow: state.activeTVShow,
+    tvShow: state.activeTarget,
     searchContentStatus: state.searchContentStatus,
   };
 }
